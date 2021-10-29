@@ -1,0 +1,41 @@
+services:
+  choropleth:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:8000:80
+    environment:
+      - APP_KEY=base64:mGTKXJzoje4iZ1Yhhitjc8J98ZmyopxIXBueixUbZL8=
+      - APP_MAPBOX_ACCESS_TOKEN=
+      - APP_MAX_DISTANCE_COUNT=10000
+      - APP_LOGIN_EMAIL=admin@example.com
+      - APP_LOGIN_PASSWORD=password
+      - DB_HOST=login_db
+      - DB_DATABASE=choroplethmaps
+      - DB_USERNAME=choroplethmaps
+      - DB_PASSWORD=choroplethmapspassword
+      - BAYAREA_DB_HOST=roads_db
+      - BAYAREA_DB_DATABASE=bayarea
+      - BAYAREA_DB_USERNAME=choroplethmaps
+      - BAYAREA_DB_PASSWORD=choroplethmapspassword
+  login_db:
+    image: postgres:14.0
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=choroplethmaps
+      - POSTGRES_USER=choroplethmaps
+      - POSTGRES_PASSWORD=choroplethmapspassword
+    volumes:
+      - login_db:/var/lib/postgresql/data
+  roads_db:
+    build: ./scripts/roads_db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=bayarea
+      - POSTGRES_USER=choroplethmaps
+      - POSTGRES_PASSWORD=choroplethmapspassword
+    volumes:
+      - roads_db:/var/lib/postgresql/data
+volumes:
+  login_db:
+  roads_db:

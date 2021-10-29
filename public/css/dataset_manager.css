@@ -1,0 +1,62 @@
+body {
+  overflow: auto;
+}
+
+.button.is-link {
+    background-color: #66bb6a;
+}
+
+.button.is-link[disabled] {
+    background-color: #9e9d24;
+}
+
+.button.is-link:hover {
+    background-color: #519657;
+}
+
+.button.is-link:active {
+    background-color: #00701a;
+}
+
+.datasets-container {
+    border: 0.1rem solid #338a3e;
+    border-radius: 1rem;
+    width: calc(100% - 4rem);
+    min-height: 30rem;
+    margin: 2rem 2rem;
+}
+
+.datasets-container>.title {
+    margin: 0.5rem auto;
+    text-align: center;
+}
+
+.add-step {
+    border: 0.1rem solid #338a3e;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: calc(33% - 2rem);
+    margin: 1rem;
+}
+
+#add-dataset-form {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    align-items: stretch;
+}
+
+#add-dataset-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#existing-datasets-container {}
+
+#existing-datasets-table {
+  width: 100%;
+  background-color: transparent;
+}
+

@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-y: hidden;
+}
+
+#mouse-tooltip {
+    position: absolute;
+    top: -999rem;
+    left: -999rem;
+    z-index: 500;
+    width: 0.1rem;
+    height: 0.1rem;
+    border: none;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
